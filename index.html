@@ -98,27 +98,41 @@
     
 
     <!-- YOUTUBE LINK -->
-    <div class="video-carousel" style="position: absolute; top: 925px; left: 9px;">
-        <!-- Controls with custom arrows and centered text -->
-        <div class="controls" style="position: relative; width: 395px; height: 30px; display: flex; justify-content: center; align-items: center; top: -35px;">
-            <!-- Custom left arrow image -->
-            <button id="prevBtn" style="background: none; border: none; cursor: pointer; padding: 0 10px;">
-                <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/777D4B81-C29D-C906-AC86-F16E4F03CE36.png" alt="Previous" width="112" height="40" style="width: 50px; height: 30px;">
-            </button>
+   <div class="video-carousel" style="position: absolute; top: 925px; left: 9px;">
+    <!-- Controls with custom arrows and centered text -->
+    <div class="controls" style="position: relative; width: 395px; height: 30px; display: flex; justify-content: center; align-items: center; top: -35px;">
+        <!-- Custom left arrow image -->
+        <button id="prevBtn" style="background: none; border: none; cursor: pointer; padding: 0 10px;">
+            <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/777D4B81-C29D-C906-AC86-F16E4F03CE36.png" alt="Previous" width="112" height="40" style="width: 50px; height: 30px;">
+        </button>
 
-            <!-- Image in between the arrows -->
-            <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/CAA4DB3C-86CD-ABDC-0B58-20634957127D.png" alt="Scroll" width="185" height="30" style="height: 30px;">
-            <!-- Custom right arrow image -->
-            <button id="nextBtn" style="background: none; border: none; cursor: pointer; padding: 0 10px;">
-                <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/A79DFC11-1CED-7682-028F-B57064C4A9E0.png" alt="Next" width="101" height="36" style="width: 50px; height: 30px;">
-            </button>
-        </div>
-
-        <!-- Video iframe moved up by 15px -->
-        <div class="video-wrapper" style="position: relative;">
-            <iframe id="ytplayer" width="395" height="222.1875" src="" frameborder="0" allowfullscreen="allowfullscreen" style="transform: translateY(-30px);"></iframe>
-        </div>
+        <!-- Image in between the arrows -->
+        <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/CAA4DB3C-86CD-ABDC-0B58-20634957127D.png" alt="Scroll" width="185" height="30" style="height: 30px;">
+        
+        <!-- Custom right arrow image -->
+        <button id="nextBtn" style="background: none; border: none; cursor: pointer; padding: 0 10px;">
+            <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/A79DFC11-1CED-7682-028F-B57064C4A9E0.png" alt="Next" width="101" height="36" style="width: 50px; height: 30px;">
+        </button>
     </div>
+
+    <!-- Video iframe moved up by 15px -->
+    <div class="video-wrapper" style="position: relative;">
+        <!-- First random video -->
+        <iframe id="ytplayer1" width="395" height="222.1875" 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+            frameborder="0" allowfullscreen="allowfullscreen" style="transform: translateY(-30px);"></iframe>
+        
+        <!-- Second random video -->
+        <iframe id="ytplayer2" width="395" height="222.1875" 
+            src="https://www.youtube.com/embed/3JZ_D3ELwOQ" 
+            frameborder="0" allowfullscreen="allowfullscreen" style="transform: translateY(-30px);"></iframe>
+        
+        <!-- Third random video -->
+        <iframe id="ytplayer3" width="395" height="222.1875" 
+            src="https://www.youtube.com/embed/tVj0ZTS4WF4" 
+            frameborder="0" allowfullscreen="allowfullscreen" style="transform: translateY(-30px);"></iframe>
+    </div>
+</div>
 
     <!-- PEER SUPPORT -->
     <a href="https://s3.amazonaws.com/tsresources.targetsolutions.com/D4898E15-FA6F-356B-6EC4-FBCA63906713.png" target="_blank" rel="noopener">
