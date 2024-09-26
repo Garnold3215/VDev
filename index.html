@@ -74,8 +74,78 @@
 	<!-- CENTRALITY --> <a href="http://centrality.ci.palm-coast.fl.us/" target="_blank" rel="noopener"> <img style="position: absolute; top: 745px; left: 36px; width: 133px; height: 24px;" title="Centrality" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/E835CDDE-79A6-4686-A016-E0CAE74ECD9E.png" alt="Centrality" /> </a> 
 	
 	
-	<!-- YOUTUBE LINK --> <iframe id="ytplayer" style="position: absolute; top: 875px; left: 15px;" src="https://www.youtube.com/embed/jy9yQvJ6I_k?cc_load_policy=1" width="395" height="222.1875" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+	<!-- YOUTUBE LINK --> 
 	
+	<!-- Video Carousel Container -->
+<div class="video-carousel" style="position: absolute; top: 875px; left: 15px;">
+    <button id="prevBtn" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%);">&#10094;</button> <!-- Left arrow -->
+    
+    <div class="video-wrapper">
+        <iframe id="ytplayer" width="395" height="222.1875" src="https://www.youtube.com/embed/jy9yQvJ6I_k?cc_load_policy=1" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+    </div>
+    
+    <button id="nextBtn" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%);">&#10095;</button> <!-- Right arrow -->
+</div>
+
+<!-- Add styling for carousel -->
+<style>
+    .video-wrapper {
+        width: 395px;
+        height: 222.1875px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    #prevBtn, #nextBtn {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 24px;
+        transition: background-color 0.3s ease;
+        z-index: 2;
+    }
+
+    #prevBtn:hover, #nextBtn:hover {
+        background-color: #555;
+    }
+</style>
+
+<!-- Add JavaScript to handle video switching -->
+<script>
+    // Array of YouTube video URLs (embed links)
+    const videoUrls = [
+        "https://www.youtube.com/embed/jy9yQvJ6I_k?cc_load_policy=1",
+        "https://www.youtube.com/embed/tgbNymZ7vqY",
+        "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    ];
+
+    let currentVideoIndex = 0;
+
+    // Select the iframe and buttons
+    const youtubeFrame = document.getElementById("ytplayer");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    // Function to update the iframe src
+    function updateVideo() {
+        youtubeFrame.src = videoUrls[currentVideoIndex];
+    }
+
+    // Click event for next button
+    nextBtn.addEventListener("click", function () {
+        currentVideoIndex = (currentVideoIndex + 1) % videoUrls.length;
+        updateVideo();
+    });
+
+    // Click event for prev button
+    prevBtn.addEventListener("click", function () {
+        currentVideoIndex = (currentVideoIndex - 1 + videoUrls.length) % videoUrls.length;
+        updateVideo();
+    });
+</script>
+
 	
 	<!-- PEER SUPPORT --> <a href="https://s3.amazonaws.com/tsresources.targetsolutions.com/D4898E15-FA6F-356B-6EC4-FBCA63906713.png" target="_blank" rel="noopener"> <img style="position: absolute; top: 1170px; left: 36px; width: 249px; height: 24px;" title="Peer Support" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/5F9B53FE-FE22-E33D-2363-3B316C1FCD1A.png" alt="Peer Support" /> </a>
 	
