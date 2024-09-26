@@ -1,19 +1,19 @@
 <!-- Background Image Container -->
 <div style="position: relative; width: 425px; height: 1600px; background: url('https://s3.amazonaws.com/tsresources.targetsolutions.com/DDCE08C6-3701-F52A-9474-3D4B45AA5B55.gif') no-repeat center top; background-size: cover;">
 
-    <!-- Main Tab positioned individually -->
-    <div style="position: absolute; top: 10px; left: 13px;">
-        <a href="index.html">
-            <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/8BCF333D-E710-8CA5-A508-52605AC27F2E.png" alt="Main Page" width="90" height="30" style="width: 100px; height: 35px;">
-        </a>
-    </div>
+<!-- Main Tab positioned individually -->
+<div style="position: absolute; top: 10px; left: 13px;">
+    <a href="index.html">
+        <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/8BCF333D-E710-8CA5-A508-52605AC27F2E.png" alt="Main Page" width="90" height="30" style="width: 105px; height: 35px;">
+    </a>
+</div>
 
-    <!-- Chief Tab positioned individually -->
-    <div style="position: absolute; top: 10px; left: 120px;">
-        <a href="chief.html">
-            <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/A5190065-A4CF-B7E9-CCF5-0C1889A465C6.png" alt="Chief Page" style="width: 200px; height: 35px;">
-        </a>
-    </div>
+<!-- Chief Tab positioned individually -->
+<div style="position: absolute; top: 10px; left: 120px;">
+    <a href="chief.html">
+        <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/A5190065-A4CF-B7E9-CCF5-0C1889A465C6.png" alt="Chief Page" style="width: 180px; height: 35px;">
+    </a>
+</div>
 
     <!-- PHYSICAL FITNESS with Tooltip -->
     <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=47938" target="_top">
@@ -96,9 +96,8 @@
     </a>
 
     
-
     <!-- YOUTUBE LINK -->
-   <div class="video-carousel" style="position: absolute; top: 925px; left: 9px;">
+ <div class="video-carousel" style="position: absolute; top: 920px; left: 15px;">
     <!-- Controls with custom arrows and centered text -->
     <div class="controls" style="position: relative; width: 395px; height: 30px; display: flex; justify-content: center; align-items: center; top: -35px;">
         <!-- Custom left arrow image -->
@@ -108,7 +107,6 @@
 
         <!-- Image in between the arrows -->
         <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/CAA4DB3C-86CD-ABDC-0B58-20634957127D.png" alt="Scroll" width="185" height="30" style="height: 30px;">
-        
         <!-- Custom right arrow image -->
         <button id="nextBtn" style="background: none; border: none; cursor: pointer; padding: 0 10px;">
             <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/A79DFC11-1CED-7682-028F-B57064C4A9E0.png" alt="Next" width="101" height="36" style="width: 50px; height: 30px;">
@@ -117,22 +115,37 @@
 
     <!-- Video iframe moved up by 15px -->
     <div class="video-wrapper" style="position: relative;">
-        <!-- First random video -->
-        <iframe id="ytplayer1" width="395" height="222.1875" 
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-            frameborder="0" allowfullscreen="allowfullscreen" style="transform: translateY(-30px);"></iframe>
-        
-        <!-- Second random video -->
-        <iframe id="ytplayer2" width="395" height="222.1875" 
-            src="https://www.youtube.com/embed/3JZ_D3ELwOQ" 
-            frameborder="0" allowfullscreen="allowfullscreen" style="transform: translateY(-30px);"></iframe>
-        
-        <!-- Third random video -->
-        <iframe id="ytplayer3" width="395" height="222.1875" 
-            src="https://www.youtube.com/embed/tVj0ZTS4WF4" 
-            frameborder="0" allowfullscreen="allowfullscreen" style="transform: translateY(-30px);"></iframe>
+        <iframe id="ytplayer" width="395" height="222.1875" src="" frameborder="0" allowfullscreen="allowfullscreen" style="transform: translateY(-30px);"></iframe>
     </div>
 </div>
+
+<!-- Add JavaScript to handle the video carousel functionality -->
+<script>
+    const videos = [
+        'https://www.youtube.com/embed/jy9yQvJ6I_k?cc_load_policy=1',
+        'https://www.youtube.com/embed/video2',  // Replace 'video2' with actual video link
+        'https://www.youtube.com/embed/video3'   // Replace 'video3' with actual video link
+    ];
+
+    // Generate a random index to start with
+    let currentIndex = Math.floor(Math.random() * videos.length);
+
+    // Set the iframe src to the random video when the page loads
+    document.getElementById('ytplayer').src = videos[currentIndex];
+
+    // Handle next video button click
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % videos.length;
+        document.getElementById('ytplayer').src = videos[currentIndex];
+    });
+
+    // Handle previous video button click
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + videos.length) % videos.length;
+        document.getElementById('ytplayer').src = videos[currentIndex];
+    });
+</script>
+
 
     <!-- PEER SUPPORT -->
     <a href="https://s3.amazonaws.com/tsresources.targetsolutions.com/D4898E15-FA6F-356B-6EC4-FBCA63906713.png" target="_blank" rel="noopener">
