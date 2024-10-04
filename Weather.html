@@ -5,19 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoomed Iframe</title>
     <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
         .iframe-container {
             position: relative;
-            overflow: hidden;
-            width: 100%; /* Set the desired width */
-            height: 100%; /* Set the desired height */
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Hide overflow */
         }
 
         .iframe-container iframe {
             position: absolute;
-            width: 200%; /* Increase the width for zooming */
-            height: 200%; /* Increase the height for zooming */
-            top: -0%; /* Adjust top value to position the iframe */
-            left: 0%; /* Adjust left value to position the iframe */
+            width: 150%; /* Increase width to zoom */
+            height: 150%; /* Increase height to zoom */
+            top: -25%; /* Adjust top value to position the iframe */
+            left: -25%; /* Adjust left value to position the iframe */
             transform: scale(1.5); /* Zoom in using scale */
         }
     </style>
