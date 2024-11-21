@@ -6,27 +6,27 @@
     <title>Bulletin Board</title>
     <!-- You can include additional CSS styles or links here -->
     <style>
-        /* General hover effect to grow images */
-        a img:hover {
+        /* General hover effect to grow images, excluding the background, Chief, and Main tab images */
+        a img:not(.no-hover):hover {
             transform: scale(1.1); /* Makes the images 10% bigger when hovered over */
             transition: transform 0.3s ease-in-out; /* Smooth transition effect */
         }
     </style>
 </head>
 <body>
-    <!-- Background Image Container -->
-    <div style="position: relative; width: 420px; height: 1600px; background: url('https://s3.amazonaws.com/tsresources.targetsolutions.com/C9D4EA09-2521-F7B4-D96A-EEAB1D79C828.png') no-repeat center center; background-size: cover;">
-        <!-- Main Tab positioned individually -->
+    <!-- Background Image Container without hover effect -->
+    <div class="no-hover" style="position: relative; width: 420px; height: 1600px; background: url('https://s3.amazonaws.com/tsresources.targetsolutions.com/STATIC_IMAGE_URL.png') no-repeat center center; background-size: cover;">
+        <!-- Main Tab positioned individually without hover effect -->
         <div style="position: absolute; top: 10px; left: 13px;">
             <a href="index.html">
-                <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/68B39CC3-1F0B-B7D2-2CEF-5E594C07A390.png" alt="Main Page" style="width: 105px; height: 35px;">
+                <img class="no-hover" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/68B39CC3-1F0B-B7D2-2CEF-5E594C07A390.png" alt="Main Page" style="width: 105px; height: 35px;">
             </a>
         </div>
 
-        <!-- Chief Tab positioned individually -->
+        <!-- Chief Tab positioned individually without hover effect -->
         <div style="position: absolute; top: 10px; left: 120px;">
             <a href="chief.html">
-                <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/2C8B723D-FE26-81DA-67A1-2B69283F22B5.png" alt="Chief Page" style="width: 190px; height: 35px;">
+                <img class="no-hover" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/2C8B723D-FE26-81DA-67A1-2B69283F22B5.png" alt="Chief Page" style="width: 190px; height: 35px;">
             </a>
         </div>
 
@@ -151,7 +151,7 @@
 
         <!-- MD Anderson -->
         <a href="https://garnold91.wixsite.com/dash/cancer" target="_top">
-            <img style="position: absolute; top: 1420px; left: 36px; width: 309px; height: 24px;" title="MD Anderson" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/298FFD17-2DF4-22F2-B307-24A162E52DB2.gif" alt="MD Anderson">
+            <img style="position: absolute; top: 1420px; left: 36px; width: 309px; height: 24px;" title="MD Anderson" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/298FFD17-2DF4-22F2-B307-24A162E52DB2.png" alt="MD Anderson">
         </a>
 
         <!-- SOP Standard Operating Guidelines -->
