@@ -5,86 +5,160 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bulletin Board</title>
     <style>
-        /* Feathered Glow Effect Using Pseudo-Element for a Subtle Transition */
-        .hover-effect-feathered-glow {
-            position: relative;
-            transition: transform 0.4s ease-in-out;
+        /* CSS for Apple-like Dock Effect */
+        .dock-effect {
+            transition: transform 0.3s ease;
         }
 
-        .hover-effect-feathered-glow::before {
-            content: '';
-            position: absolute;
-            top: -5px; /* Reduce distance to make glow smaller */
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border-radius: 20px; /* Ensures a subtle, rounded, natural fade-out */
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 60%);
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            pointer-events: none; /* Allows mouse events to pass through to the original element */
+        .dock-effect:hover {
+            transform: scale(1.3);
         }
 
-        /* Hover effect to fade in the feathered glow */
-        .hover-effect-feathered-glow:hover::before {
-            opacity: 1;
+        /* CSS for Shake Effect on Arrows */
+        .shake-effect {
+            transition: transform 0.2s ease;
+        }
+
+        .shake-effect:hover {
+            transform: rotate(-10deg) translateX(-2px);
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(-10deg) translateX(-2px); }
+            25% { transform: rotate(10deg) translateX(2px); }
+            50% { transform: rotate(-10deg) translateX(-2px); }
+            75% { transform: rotate(10deg) translateX(2px); }
         }
     </style>
 </head>
 <body>
     <!-- Background Image Container -->
     <div style="position: relative; width: 420px; height: 1600px; background: url('https://s3.amazonaws.com/tsresources.targetsolutions.com/4D01ECFD-AE97-F466-6633-E90F9C6C4B7C.gif') no-repeat center center; background-size: cover;">
-        
-        <!-- Main Tab positioned individually (No hover effect) -->
+        <!-- Main Tab positioned individually -->
         <div style="position: absolute; top: 10px; left: 13px;">
             <a href="index.html">
                 <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/68B39CC3-1F0B-B7D2-2CEF-5E594C07A390.png" alt="Main Page" style="width: 105px; height: 35px;">
             </a>
         </div>
 
-        <!-- Chief Tab positioned individually (No hover effect) -->
+        <!-- Chief Tab positioned individually -->
         <div style="position: absolute; top: 10px; left: 120px;">
             <a href="chief.html">
                 <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/2C8B723D-FE26-81DA-67A1-2B69283F22B5.png" alt="Chief Page" style="width: 190px; height: 35px;">
             </a>
         </div>
 
-        <!-- Links with Feathered Glow Effect Using Pseudo-Elements -->
-
-        <!-- PHYSICAL FITNESS with Tooltip - Feathered Glow Effect -->
+        <!-- PHYSICAL FITNESS with Dock Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=47938" target="_top">
-            <div class="hover-effect-feathered-glow" style="position: absolute; top: 155px; left: 36px; width: 189px; height: 24px;">
-                <img style="width: 100%; height: 100%;" title="Physical Fitness" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/982851D1-BB36-503C-EE59-43F5A3BE1DED.png" alt="Physical Fitness">
-            </div>
+            <img class="dock-effect" style="position: absolute; top: 155px; left: 36px; width: 189px; height: 24px;" title="Physical Fitness" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/982851D1-BB36-503C-EE59-43F5A3BE1DED.png" alt="Physical Fitness">
         </a>
 
-        <!-- PRE-TRIP INSPECTION - Feathered Glow Effect -->
+        <!-- PRE-TRIP INSPECTION with Dock Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_custom_activities.showUserCustomActivity&navIDs=1,10&courseid=614618" target="_top">
-            <div class="hover-effect-feathered-glow" style="position: absolute; top: 185px; left: 36px; width: 226px; height: 24px;">
-                <img style="width: 100%; height: 100%;" title="Pre-Trip Inspection" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/8875BFCB-286B-4EC6-67C2-12E03EF8B0D5.png" alt="Pre-Trip Inspection">
-            </div>
+            <img class="dock-effect" style="position: absolute; top: 185px; left: 36px; width: 226px; height: 24px;" title="Pre-Trip Inspection" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/8875BFCB-286B-4EC6-67C2-12E03EF8B0D5.png" alt="Pre-Trip Inspection">
         </a>
 
-        <!-- AREA FAMILIARIZATION - Feathered Glow Effect -->
+        <!-- AREA FAMILIARIZATION with Dock Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=47936" target="_top">
-            <div class="hover-effect-feathered-glow" style="position: absolute; top: 215px; left: 37px; width: 246px; height: 24px;">
-                <img style="width: 100%; height: 100%;" title="Area Familiarization" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/E253508F-BA0C-59DC-471B-F1E2041FBC22.png" alt="Area Familiarization">
-            </div>
+            <img class="dock-effect" style="position: absolute; top: 215px; left: 37px; width: 246px; height: 24px;" title="Area Familiarization" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/E253508F-BA0C-59DC-471B-F1E2041FBC22.png" alt="Area Familiarization">
         </a>
 
-        <!-- WATER LOG - Feathered Glow Effect -->
+        <!-- WATER LOG with Dock Effect -->
         <a href="" target="_blank" rel="noopener">
-            <div class="hover-effect-feathered-glow" style="position: absolute; top: 245px; left: 37px; width: 123px; height: 24px;">
-                <img style="width: 100%; height: 100%;" title="Water Log" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/23326F03-23B2-B60B-29AB-33B242A9A9C6.png" alt="Water Log">
-            </div>
+            <img class="dock-effect" style="position: absolute; top: 245px; left: 37px; width: 123px; height: 24px;" title="Water Log" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/23326F03-23B2-B60B-29AB-33B242A9A9C6.png" alt="Water Log">
         </a>
 
-        <!-- SOP Standard Operating Guidelines - Feathered Glow Effect -->
-        <a href="https://centrality.ci.palm-coast.fl.us/employeedashboard/home/fire" target="_blank" rel="noopener">
-            <div class="hover-effect-feathered-glow" style="position: absolute; top: 1450px; left: 36px; width: 354px; height: 24px;">
-                <img style="width: 100%; height: 100%;" title="SOP Standard Operating Guidelines" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/16370B4B-4E05-88D0-F6BD-193941311EBD.png" alt="SOP Standard Operating Guidelines">
-            </div>
+        <!-- BGL MONDAYS with Dock Effect -->
+        <a href="" target="_blank" rel="noopener">
+            <img class="dock-effect" style="position: absolute; top: 275px; left: 37px; width: 147px; height: 24px;" title="BGL Mondays" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/A7981197-EA94-3CD3-92E9-5138C2D4D728.png" alt="BGL Mondays">
         </a>
+
+        <!-- COMPANY TRAINING with Dock Effect -->
+        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948089" target="_top">
+            <img class="dock-effect" style="position: absolute; top: 420px; left: 190px; width: 96px; height: 24px;" title="Company Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/F708BC7C-4822-20CC-AC34-1934BBBE9832.png" alt="Company Training">
+        </a>
+
+        <!-- DRIVER TRAINING with Dock Effect -->
+        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948090" target="_top">
+            <img class="dock-effect" style="position: absolute; top: 450px; left: 190px; width: 82px; height: 24px;" title="Driver Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/AEA20159-72A8-173D-FF20-D9FB9B472905.png" alt="Driver Training">
+        </a>
+
+        <!-- HAZMAT with Dock Effect -->
+        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948092" target="_top">
+            <img class="dock-effect" style="position: absolute; top: 480px; left: 190px; width: 91px; height: 24px;" title="Hazmat" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/AF2EC452-67F2-6465-8D82-C899FF79C219.png" alt="Hazmat">
+        </a>
+
+        <!-- OFFICER TRAINING with Dock Effect -->
+        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948093" target="_top">
+            <img class="dock-effect" style="position: absolute; top: 510px; left: 190px; width: 95px; height: 24px;" title="Officer Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/5E124536-7ADD-03D8-3985-9249D3CB60E6.png" alt="Officer Training">
+        </a>
+
+        <!-- NON-ISO with Dock Effect -->
+        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=2484801" target="_top">
+            <img class="dock-effect" style="position: absolute; top: 540px; left: 150px; width: 177px; height: 24px;" title="Non-ISO" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/7401D0DF-9921-2EED-27F6-BA85F825D6A5.png" alt="Non-ISO">
+        </a>
+
+        <!-- MULTI-AGENCY COMPANY TRAINING with Dock Effect -->
+        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=2504349" target="_top">
+            <img class="dock-effect" style="position: absolute; top: 570px; left: 125px; width: 255px; height: 24px;" title="Multi-Agency Company Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/5E6A964F-7C95-A9A4-3A64-84488264B3E0.png" alt="Multi-Agency Company Training">
+        </a>
+
+        <!-- FLEET MAINTENANCE REQUEST -->
+        <a href="https://palmcoastfl.fasterwebcloud.com/FASTER/Portal/login/default.aspx" target="_blank" rel="noopener">
+            <img class="dock-effect" style="position: absolute; top: 695px; left: 36px; width: 296px; height: 24px;" title="Fleet Maintenance Request" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/372A95C8-5C05-CD67-97A6-BC75E3DE7932.png" alt="Fleet Maintenance Request">
+        </a>
+
+        <!-- YOUTUBE LINK with Shake Effect Arrows -->
+        <div class="video-carousel" style="position: absolute; top: 920px; left: 12px;">
+            <!-- Controls with custom arrows and centered text -->
+            <div class="controls" style="position: relative; width: 395px; height: 30px; display: flex; justify-content: center; align-items: center; top: -35px;">
+                <!-- Custom left arrow image with shake effect -->
+                <button id="prevBtn" style="background: none; border: none; cursor: pointer; padding: 0 10px;">
+                    <img class="shake-effect" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/777D4B81-C29D-C906-AC86-F16E4F03CE36.png" alt="Previous" style="width: 50px; height: 30px;">
+                </button>
+
+                <!-- Image in between the arrows -->
+                <img src="https://s3.amazonaws.com/tsresources.targetsolutions.com/CAA4DB3C-86CD-ABDC-0B58-20634957127D.png" alt="Scroll" style="height: 30px;">
+
+                <!-- Custom right arrow image with shake effect -->
+                <button id="nextBtn" style="background: none; border: none; cursor: pointer; padding: 0 10px;">
+                    <img class="shake-effect" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/A79DFC11-1CED-7682-028F-B57064C4A9E0.png" alt="Next" style="width: 50px; height: 30px;">
+                </button>
+            </div>
+
+            <!-- Video iframe moved up by 15px -->
+            <div class="video-wrapper" style="position: relative;">
+                <iframe id="ytplayer" width="395" height="222.1875" src="" frameborder="0" allowfullscreen="allowfullscreen" style="transform: translateY(-30px);"></iframe>
+            </div>
+        </div>
     </div>
+
+    <!-- JavaScript placed before the closing body tag -->
+    <script>
+        const videos = [
+            'https://www.youtube.com/embed/jy9yQvJ6I_k?cc_load_policy=1',
+            'https://www.youtube.com/embed/uzWJngpIbRY?cc_load_policy=1',
+            'https://www.youtube.com/embed/dC8dC8-ZAoU?cc_load_policy=1'
+        ];
+
+        // Generate a random index to start with
+        let currentIndex = Math.floor(Math.random() * videos.length);
+
+        // Set the iframe src to the random video when the page loads
+        document.getElementById('ytplayer').src = videos[currentIndex];
+
+        // Handle next video button click
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % videos.length;
+            document.getElementById('ytplayer').src = videos[currentIndex];
+        });
+
+        // Handle previous video button click
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + videos.length) % videos.length;
+            document.getElementById('ytplayer').src = videos[currentIndex];
+        });
+    </script>
 </body>
 </html>
