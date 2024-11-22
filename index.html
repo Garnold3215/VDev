@@ -5,12 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bulletin Board</title>
     <style>
-        /* Soft Fading Glow Effect Without Blurring the Image */
+        /* Soft Feathered Glow Effect to Blend Image Naturally */
         .hover-effect-soft-fade {
-            transition: box-shadow 0.4s ease-in-out, transform 0.4s ease-in-out;
+            position: relative; /* Needed for the pseudo-element to position correctly */
+            transition: transform 0.4s ease-in-out; /* Smooth scaling transition */
         }
+
+        /* Before pseudo-element for feathered effect */
+        .hover-effect-soft-fade::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%; /* Soft rounded edges to prevent hard transitions */
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        /* Hover effect for the actual image and its surrounding feather effect */
+        .hover-effect-soft-fade:hover::before {
+            opacity: 1; /* Show the feathered glow effect on hover */
+        }
+
         .hover-effect-soft-fade:hover {
-            box-shadow: 0 0 15px 15px rgba(255, 255, 255, 0.3); /* Reduced glow with softer edges */
             transform: scale(1.05); /* Slightly enlarge the image */
         }
     </style>
@@ -33,32 +53,84 @@
             </a>
         </div>
 
-        <!-- Links with the Soft Fading Glow Effect -->
+        <!-- Links with the Soft Feathering Glow Effect -->
 
-        <!-- PHYSICAL FITNESS with Tooltip - Soft Fading Glow Effect -->
+        <!-- PHYSICAL FITNESS with Tooltip - Soft Feathering Glow Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=47938" target="_top">
             <img class="hover-effect-soft-fade" style="position: absolute; top: 155px; left: 36px; width: 189px; height: 24px;" title="Physical Fitness" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/982851D1-BB36-503C-EE59-43F5A3BE1DED.png" alt="Physical Fitness">
         </a>
 
-        <!-- PRE-TRIP INSPECTION - Soft Fading Glow Effect -->
+        <!-- PRE-TRIP INSPECTION - Soft Feathering Glow Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_custom_activities.showUserCustomActivity&navIDs=1,10&courseid=614618" target="_top">
             <img class="hover-effect-soft-fade" style="position: absolute; top: 185px; left: 36px; width: 226px; height: 24px;" title="Pre-Trip Inspection" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/8875BFCB-286B-4EC6-67C2-12E03EF8B0D5.png" alt="Pre-Trip Inspection">
         </a>
 
-        <!-- AREA FAMILIARIZATION - Soft Fading Glow Effect -->
+        <!-- AREA FAMILIARIZATION - Soft Feathering Glow Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=47936" target="_top">
             <img class="hover-effect-soft-fade" style="position: absolute; top: 215px; left: 37px; width: 246px; height: 24px;" title="Area Familiarization" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/E253508F-BA0C-59DC-471B-F1E2041FBC22.png" alt="Area Familiarization">
         </a>
 
-        <!-- WATER LOG - Soft Fading Glow Effect -->
+        <!-- WATER LOG - Soft Feathering Glow Effect -->
         <a href="" target="_blank" rel="noopener">
             <img class="hover-effect-soft-fade" style="position: absolute; top: 245px; left: 37px; width: 123px; height: 24px;" title="Water Log" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/23326F03-23B2-B60B-29AB-33B242A9A9C6.png" alt="Water Log">
         </a>
 
-        <!-- BGL MONDAYS - Soft Fading Glow Effect -->
+        <!-- BGL MONDAYS - Soft Feathering Glow Effect -->
         <a href="" target="_blank" rel="noopener">
             <img class="hover-effect-soft-fade" style="position: absolute; top: 275px; left: 37px; width: 147px; height: 24px;" title="BGL Mondays" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/A7981197-EA94-3CD3-92E9-5138C2D4D728.png" alt="BGL Mondays">
         </a>
 
-        <!-- COMPANY TRAINING - Soft Fading Glow Effect -->
-        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignmen
+        <!-- COMPANY TRAINING - Soft Feathering Glow Effect -->
+        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948089" target="_top">
+            <img class="hover-effect-soft-fade" style="position: absolute; top: 420px; left: 190px; width: 96px; height: 24px;" title="Company Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/F708BC7C-4822-20CC-AC34-1934BBBE9832.png" alt="Company Training">
+        </a>
+
+        <!-- DRIVER TRAINING - Soft Feathering Glow Effect -->
+        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948090" target="_top">
+            <img class="hover-effect-soft-fade" style="position: absolute; top: 450px; left: 190px; width: 82px; height: 24px;" title="Driver Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/AEA20159-72A8-173D-FF20-D9FB9B472905.png" alt="Driver Training">
+        </a>
+
+        <!-- HAZMAT - Soft Feathering Glow Effect -->
+        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948092" target="_top">
+            <img class="hover-effect-soft-fade" style="position: absolute; top: 480px; left: 190px; width: 91px; height: 24px;" title="Hazmat" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/AF2EC452-67F2-6465-8D82-C899FF79C219.png" alt="Hazmat">
+        </a>
+
+        <!-- OFFICER TRAINING - Soft Feathering Glow Effect -->
+        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948093" target="_top">
+            <img class="hover-effect-soft-fade" style="position: absolute; top: 510px; left: 190px; width: 95px; height: 24px;" title="Officer Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/5E124536-7ADD-03D8-3985-9249D3CB60E6.png" alt="Officer Training">
+        </a>
+
+        <!-- PEER SUPPORT - Soft Feathering Glow Effect -->
+        <a href="https://s3.amazonaws.com/tsresources.targetsolutions.com/D4898E15-FA6F-356B-6EC4-FBCA63906713.png" target="_blank" rel="noopener">
+            <img class="hover-effect-soft-fade" style="position: absolute; top: 1210px; left: 36px; width: 249px; height: 24px;" title="Peer Support" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/5F9B53FE-FE22-E33D-2363-3B316C1FCD1A.png" alt="Peer Support">
+        </a>
+
+        <!-- SOP Standard Operating Guidelines - Soft Feathering Glow Effect -->
+        <a href="https://centrality.ci.palm-coast.fl.us/employeedashboard/home/fire" target="_blank" rel="noopener">
+            <img class="hover-effect-soft-fade" style="position: absolute; top: 1450px; left: 36px; width: 354px; height: 24px;" title="SOP Standard Operating Guidelines" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/16370B4B-4E05-88D0-F6BD-193941311EBD.png" alt="SOP Standard Operating Guidelines">
+        </a>
+    </div>
+
+    <!-- JavaScript placed before the closing body tag -->
+    <script>
+        const videos = [
+            'https://www.youtube.com/embed/jy9yQvJ6I_k?cc_load_policy=1',
+            'https://www.youtube.com/embed/uzWJngpIbRY?cc_load_policy=1',
+            'https://www.youtube.com/embed/dC8dC8-ZAoU?cc_load_policy=1'
+        ];
+
+        // Generate a random index to start with
+        let currentIndex = Math.floor(Math.random() * videos.length);
+
+        // Set the iframe src to the random video when the page loads
+        document.getElementById('ytplayer').src = videos[currentIndex];
+
+        // Handle next video button click
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % videos.length;
+            document.getElementById('ytplayer').src = videos[currentIndex];
+        });
+
+        // Handle previous video button click
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentIndex 
