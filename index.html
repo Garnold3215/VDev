@@ -4,14 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bulletin Board</title>
-    <!-- You can include additional CSS styles or links here -->
     <style>
-        /* Apply hover effect only to relevant images */
-        .hover-effect {
-            transition: transform 0.4s ease-in-out; /* Smooth transition effect */
+        /* Effect 1: Glow Around the Chalk Text Image */
+        .hover-effect-glow {
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
-        .hover-effect:hover {
-            transform: scale(1.1); /* Makes the images 10% bigger when hovered over */
+        .hover-effect-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Glow around the image */
+            transform: scale(1.1); /* Slightly enlarge the image */
+        }
+
+        /* Effect 2: Dusty Shadow Effect */
+        .hover-effect-dust {
+            transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .hover-effect-dust:hover {
+            filter: drop-shadow(5px 5px 5px #bbb); /* Adds a chalky shadow effect */
+            transform: scale(1.1); /* Slightly enlarge the image */
+        }
+
+        /* Effect 3: Shake Effect Like Written by Hand */
+        .hover-effect-shake {
+            transition: transform 0.2s ease-in-out;
+        }
+        .hover-effect-shake:hover {
+            transform: rotate(-2deg) translateX(-2px) translateY(-2px) scale(1.05); /* Shake effect */
+        }
+
+        /* Effect 4: Smudge Effect */
+        .hover-effect-smudge {
+            transition: filter 0.4s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .hover-effect-smudge:hover {
+            filter: blur(2px); /* Smudge effect */
+            transform: scale(1.05); /* Slight enlarge */
+        }
+
+        /* Effect 5: Color Glow Change */
+        .hover-effect-color-glow {
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .hover-effect-color-glow:hover {
+            box-shadow: 0 0 15px 5px rgba(255, 165, 0, 0.6); /* Adds an orange glow around the image */
         }
     </style>
 </head>
@@ -35,80 +69,81 @@
 
         <!-- Links with Hover Effect -->
 
-        <!-- PHYSICAL FITNESS with Tooltip -->
+        <!-- PHYSICAL FITNESS with Tooltip - Glow Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=47938" target="_top">
-            <img class="hover-effect" style="position: absolute; top: 155px; left: 36px; width: 189px; height: 24px;" title="Physical Fitness" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/982851D1-BB36-503C-EE59-43F5A3BE1DED.png" alt="Physical Fitness">
+            <img class="hover-effect-glow" style="position: absolute; top: 155px; left: 36px; width: 189px; height: 24px;" title="Physical Fitness" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/982851D1-BB36-503C-EE59-43F5A3BE1DED.png" alt="Physical Fitness">
         </a>
 
-        <!-- PRE-TRIP INSPECTION -->
+        <!-- PRE-TRIP INSPECTION - Dusty Shadow Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_custom_activities.showUserCustomActivity&navIDs=1,10&courseid=614618" target="_top">
-            <img class="hover-effect" style="position: absolute; top: 185px; left: 36px; width: 226px; height: 24px;" title="Pre-Trip Inspection" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/8875BFCB-286B-4EC6-67C2-12E03EF8B0D5.png" alt="Pre-Trip Inspection">
+            <img class="hover-effect-dust" style="position: absolute; top: 185px; left: 36px; width: 226px; height: 24px;" title="Pre-Trip Inspection" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/8875BFCB-286B-4EC6-67C2-12E03EF8B0D5.png" alt="Pre-Trip Inspection">
         </a>
 
-        <!-- AREA FAMILIARIZATION -->
+        <!-- AREA FAMILIARIZATION - Shake Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=47936" target="_top">
-            <img class="hover-effect" style="position: absolute; top: 215px; left: 37px; width: 246px; height: 24px;" title="Area Familiarization" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/E253508F-BA0C-59DC-471B-F1E2041FBC22.png" alt="Area Familiarization">
+            <img class="hover-effect-shake" style="position: absolute; top: 215px; left: 37px; width: 246px; height: 24px;" title="Area Familiarization" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/E253508F-BA0C-59DC-471B-F1E2041FBC22.png" alt="Area Familiarization">
         </a>
 
-        <!-- WATER LOG -->
+        <!-- WATER LOG - Smudge Effect -->
         <a href="" target="_blank" rel="noopener">
-            <img class="hover-effect" style="position: absolute; top: 245px; left: 37px; width: 123px; height: 24px;" title="Water Log" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/23326F03-23B2-B60B-29AB-33B242A9A9C6.png" alt="Water Log">
+            <img class="hover-effect-smudge" style="position: absolute; top: 245px; left: 37px; width: 123px; height: 24px;" title="Water Log" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/23326F03-23B2-B60B-29AB-33B242A9A9C6.png" alt="Water Log">
         </a>
 
-        <!-- BGL MONDAYS -->
+        <!-- BGL MONDAYS - Color Glow Change -->
         <a href="" target="_blank" rel="noopener">
-            <img class="hover-effect" style="position: absolute; top: 275px; left: 37px; width: 147px; height: 24px;" title="BGL Mondays" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/A7981197-EA94-3CD3-92E9-5138C2D4D728.png" alt="BGL Mondays">
+            <img class="hover-effect-color-glow" style="position: absolute; top: 275px; left: 37px; width: 147px; height: 24px;" title="BGL Mondays" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/A7981197-EA94-3CD3-92E9-5138C2D4D728.png" alt="BGL Mondays">
         </a>
 
-        <!-- COMPANY TRAINING -->
+        <!-- COMPANY TRAINING - Glow Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948089" target="_top">
-            <img class="hover-effect" style="position: absolute; top: 420px; left: 190px; width: 96px; height: 24px;" title="Company Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/F708BC7C-4822-20CC-AC34-1934BBBE9832.png" alt="Company Training">
+            <img class="hover-effect-glow" style="position: absolute; top: 420px; left: 190px; width: 96px; height: 24px;" title="Company Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/F708BC7C-4822-20CC-AC34-1934BBBE9832.png" alt="Company Training">
         </a>
 
-        <!-- DRIVER TRAINING -->
+        <!-- DRIVER TRAINING - Dusty Shadow Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948090" target="_top">
-            <img class="hover-effect" style="position: absolute; top: 450px; left: 190px; width: 82px; height: 24px;" title="Driver Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/AEA20159-72A8-173D-FF20-D9FB9B472905.png" alt="Driver Training">
+            <img class="hover-effect-dust" style="position: absolute; top: 450px; left: 190px; width: 82px; height: 24px;" title="Driver Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/AEA20159-72A8-173D-FF20-D9FB9B472905.png" alt="Driver Training">
         </a>
 
-        <!-- HAZMAT -->
+        <!-- HAZMAT - Shake Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948092" target="_top">
-            <img class="hover-effect" style="position: absolute; top: 480px; left: 190px; width: 91px; height: 24px;" title="Hazmat" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/AF2EC452-67F2-6465-8D82-C899FF79C219.png" alt="Hazmat">
+            <img class="hover-effect-shake" style="position: absolute; top: 480px; left: 190px; width: 91px; height: 24px;" title="Hazmat" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/AF2EC452-67F2-6465-8D82-C899FF79C219.png" alt="Hazmat">
         </a>
 
-        <!-- OFFICER TRAINING -->
+        <!-- OFFICER TRAINING - Smudge Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948093" target="_top">
-            <img class="hover-effect" style="position: absolute; top: 510px; left: 190px; width: 95px; height: 24px;" title="Officer Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/5E124536-7ADD-03D8-3985-9249D3CB60E6.png" alt="Officer Training">
+            <img class="hover-effect-smudge" style="position: absolute; top: 510px; left: 190px; width: 95px; height: 24px;" title="Officer Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/5E124536-7ADD-03D8-3985-9249D3CB60E6.png" alt="Officer Training">
         </a>
 
-        <!-- NON-ISO -->
+        <!-- NON-ISO - Color Glow Change -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=2484801" target="_top">
-            <img class="hover-effect" style="position: absolute; top: 540px; left: 150px; width: 177px; height: 24px;" title="Non-ISO" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/7401D0DF-9921-2EED-27F6-BA85F825D6A5.png" alt="Non-ISO">
+            <img class="hover-effect-color-glow" style="position: absolute; top: 540px; left: 150px; width: 177px; height: 24px;" title="Non-ISO" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/7401D0DF-9921-2EED-27F6-BA85F825D6A5.png" alt="Non-ISO">
         </a>
 
-        <!-- MULTI-AGENCY COMPANY TRAINING -->
+        <!-- MULTI-AGENCY COMPANY TRAINING - Glow Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=2504349" target="_top">
-            <img class="hover-effect" style="position: absolute; top: 570px; left: 125px; width: 255px; height: 24px;" title="Multi-Agency Company Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/5E6A964F-7C95-A9A4-3A64-84488264B3E0.png" alt="Multi-Agency Company Training">
+            <img class="hover-effect-glow" style="position: absolute; top: 570px; left: 125px; width: 255px; height: 24px;" title="Multi-Agency Company Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/5E6A964F-7C95-A9A4-3A64-84488264B3E0.png" alt="Multi-Agency Company Training">
         </a>
 
-        <!-- FLEET MAINTENANCE REQUEST -->
+        <!-- FLEET MAINTENANCE REQUEST - Dusty Shadow Effect -->
         <a href="https://palmcoastfl.fasterwebcloud.com/FASTER/Portal/login/default.aspx" target="_blank" rel="noopener">
-            <img class="hover-effect" style="position: absolute; top: 695px; left: 36px; width: 296px; height: 24px;" title="Fleet Maintenance Request" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/372A95C8-5C05-CD67-97A6-BC75E3DE7932.png" alt="Fleet Maintenance Request">
+            <img class="hover-effect-dust" style="position: absolute; top: 695px; left: 36px; width: 296px; height: 24px;" title="Fleet Maintenance Request" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/372A95C8-5C05-CD67-97A6-BC75E3DE7932.png" alt="Fleet Maintenance Request">
         </a>
 
-        <!-- SCBA HARNESS REPAIR REQUEST -->
+        <!-- SCBA HARNESS REPAIR REQUEST - Shake Effect -->
         <a href="http://centrality/Fire/scbaharnesses" target="_top">
-            <img class="hover-effect" style="position: absolute; top: 725px; left: 36px; width: 309px; height: 24px;" title="SCBA Harness Repair Request" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/66D730C0-81D3-22A2-6921-A65A78DBD355.png" alt="SCBA Harness Repair Request">
+            <img class="hover-effect-shake" style="position: absolute; top: 725px; left: 36px; width: 309px; height: 24px;" title="SCBA Harness Repair Request" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/66D730C0-81D3-22A2-6921-A65A78DBD355.png" alt="SCBA Harness Repair Request">
         </a>
 
-        <!-- CENTRALITY -->
+        <!-- CENTRALITY - Smudge Effect -->
         <a href="http://centrality.ci.palm-coast.fl.us/" target="_blank" rel="noopener">
-            <img class="hover-effect" style="position: absolute; top: 755px; left: 36px; width: 133px; height: 24px;" title="Centrality" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/E835CDDE-79A6-4686-A016-E0CAE74ECD9E.png" alt="Centrality">
+            <img class="hover-effect-smudge" style="position: absolute; top: 755px; left: 36px; width: 133px; height: 24px;" title="Centrality" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/E835CDDE-79A6-4686-A016-E0CAE74ECD9E.png" alt="Centrality">
         </a>
 
-        <!-- SMALL EQUIPMENT REPAIR REQUEST -->
+        <!-- SMALL EQUIPMENT REPAIR REQUEST - Color Glow Change -->
         <a href="http://centrality/Forms/Fire/PrevMaintenance" target="_blank" rel="noopener">
-            <img class="hover-effect" style="position: absolute; top: 785px; left: 36px; width: 360px; height: 24px;" title="Small Equipment Repair Request" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/A2A1E29F-658D-5653-52DD-D045EF12B504.png" alt="Small Equipment Repair Request">
+            <img class="hover-effect-color-glow" style="position: absolute; top: 785px; left: 36px; width: 360px; height: 24px;" title="Small Equipment Repair Request" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/A2A1E29F-658D-5653-52DD-D045EF12B504.png" alt="Small Equipment Repair Request">
         </a>
+
 
         <!-- YOUTUBE LINK -->
         <div class="video-carousel" style="position: absolute; top: 920px; left: 12px;">
