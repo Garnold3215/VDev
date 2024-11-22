@@ -5,35 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bulletin Board</title>
     <style>
-        /* Enhanced Soft Feathered Glow Effect to Blend Image Naturally */
+        /* Enhanced Very Soft Glow Effect to Prevent Sharp Edges */
         .hover-effect-soft-fade {
-            position: relative; /* Needed for the pseudo-element to position correctly */
-            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Smooth scaling and shadow transition */
+            position: relative; /* Position relative for pseudo-elements */
+            transition: transform 0.4s ease-in-out; /* Smooth scaling */
         }
 
-        /* Before pseudo-element for feathered effect */
         .hover-effect-soft-fade::before {
             content: "";
             position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            border-radius: 50%; /* Soft rounded edges to prevent hard transitions */
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
-            opacity: 0; /* Initially invisible */
+            top: -25px;
+            left: -25px;
+            right: -25px;
+            bottom: -25px;
+            border-radius: 15px; /* Slight rounding to soften edges */
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+            opacity: 0; /* Start invisible */
             transition: opacity 0.4s ease-in-out;
-            pointer-events: none; /* Prevent the pseudo-element from interfering with the mouse */
+            pointer-events: none; /* Not interactable */
         }
 
-        /* Hover effect for the actual image and its surrounding feather effect */
+        /* Hover effect */
         .hover-effect-soft-fade:hover::before {
-            opacity: 1; /* Show the feathered glow effect on hover */
+            opacity: 1; /* Make glow effect visible on hover */
         }
 
         .hover-effect-soft-fade:hover {
-            transform: scale(1.1); /* Slightly enlarge the image */
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Add a subtle box shadow to enhance the effect */
+            transform: scale(1.05); /* Slightly enlarge image */
         }
     </style>
 </head>
@@ -55,7 +53,7 @@
             </a>
         </div>
 
-        <!-- Links with the Soft Feathering Glow Effect -->
+        <!-- Links with Enhanced Soft Feathering Glow Effect -->
 
         <!-- PHYSICAL FITNESS with Tooltip - Soft Feathering Glow Effect -->
         <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=47938" target="_top">
@@ -92,10 +90,16 @@
             <img class="hover-effect-soft-fade" style="position: absolute; top: 450px; left: 190px; width: 82px; height: 24px;" title="Driver Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/AEA20159-72A8-173D-FF20-D9FB9B472905.png" alt="Driver Training">
         </a>
 
-        <!-- HAZMAT - Soft Feathering Glow Effect -->
-        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948092" target="_top">
-            <img class="hover-effect-soft-fade" style="position: absolute; top: 480px; left: 190px; width: 91px; height: 24px;" title="Hazmat" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/AF2EC452-67F2-6465-8D82-C899FF79C219.png" alt="Hazmat">
+        <!-- OFFICER TRAINING - Soft Feathering Glow Effect -->
+        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948093" target="_top">
+            <img class="hover-effect-soft-fade" style="position: absolute; top: 510px; left: 190px; width: 95px; height: 24px;" title="Officer Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/5E124536-7ADD-03D8-3985-9249D3CB60E6.png" alt="Officer Training">
         </a>
 
-        <!-- OFFICER TRAINING - Soft Feathering Glow Effect -->
-        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm
+        <!-- SOP Standard Operating Guidelines - Soft Feathering Glow Effect -->
+        <a href="https://centrality.ci.palm-coast.fl.us/employeedashboard/home/fire" target="_blank" rel="noopener">
+            <img class="hover-effect-soft-fade" style="position: absolute; top: 1450px; left: 36px; width: 354px; height: 24px;" title="SOP Standard Operating Guidelines" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/16370B4B-4E05-88D0-F6BD-193941311EBD.png" alt="SOP Standard Operating Guidelines">
+        </a>
+    </div>
+
+</body>
+</html>
