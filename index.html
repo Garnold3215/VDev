@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bulletin Board</title>
     <style>
-        /* Feathered Glow Effect Using Pseudo-Element for a Smooth Transition */
+        /* Feathered Glow Effect Using Pseudo-Element for a Subtle Transition */
         .hover-effect-feathered-glow {
             position: relative;
             transition: transform 0.4s ease-in-out;
@@ -14,14 +14,14 @@
         .hover-effect-feathered-glow::before {
             content: '';
             position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            border-radius: 50%; /* Ensures a rounded, natural fade-out */
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 70%);
+            top: -5px; /* Reduce distance to make glow smaller */
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 20px; /* Ensures a subtle, rounded, natural fade-out */
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 60%);
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
             pointer-events: none; /* Allows mouse events to pass through to the original element */
         }
 
