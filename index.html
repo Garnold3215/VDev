@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bulletin Board</title>
     <style>
-        /* Soft Feathered Glow Effect to Blend Image Naturally */
+        /* Enhanced Soft Feathered Glow Effect to Blend Image Naturally */
         .hover-effect-soft-fade {
             position: relative; /* Needed for the pseudo-element to position correctly */
-            transition: transform 0.4s ease-in-out; /* Smooth scaling transition */
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Smooth scaling and shadow transition */
         }
 
         /* Before pseudo-element for feathered effect */
         .hover-effect-soft-fade::before {
             content: "";
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
             border-radius: 50%; /* Soft rounded edges to prevent hard transitions */
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
-            opacity: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+            opacity: 0; /* Initially invisible */
             transition: opacity 0.4s ease-in-out;
+            pointer-events: none; /* Prevent the pseudo-element from interfering with the mouse */
         }
 
         /* Hover effect for the actual image and its surrounding feather effect */
@@ -31,7 +32,8 @@
         }
 
         .hover-effect-soft-fade:hover {
-            transform: scale(1.05); /* Slightly enlarge the image */
+            transform: scale(1.1); /* Slightly enlarge the image */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Add a subtle box shadow to enhance the effect */
         }
     </style>
 </head>
@@ -96,41 +98,4 @@
         </a>
 
         <!-- OFFICER TRAINING - Soft Feathering Glow Effect -->
-        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm?fuseaction=c_pro_assignments.showRcaSelectUsers&courseIDList=1948093" target="_top">
-            <img class="hover-effect-soft-fade" style="position: absolute; top: 510px; left: 190px; width: 95px; height: 24px;" title="Officer Training" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/5E124536-7ADD-03D8-3985-9249D3CB60E6.png" alt="Officer Training">
-        </a>
-
-        <!-- PEER SUPPORT - Soft Feathering Glow Effect -->
-        <a href="https://s3.amazonaws.com/tsresources.targetsolutions.com/D4898E15-FA6F-356B-6EC4-FBCA63906713.png" target="_blank" rel="noopener">
-            <img class="hover-effect-soft-fade" style="position: absolute; top: 1210px; left: 36px; width: 249px; height: 24px;" title="Peer Support" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/5F9B53FE-FE22-E33D-2363-3B316C1FCD1A.png" alt="Peer Support">
-        </a>
-
-        <!-- SOP Standard Operating Guidelines - Soft Feathering Glow Effect -->
-        <a href="https://centrality.ci.palm-coast.fl.us/employeedashboard/home/fire" target="_blank" rel="noopener">
-            <img class="hover-effect-soft-fade" style="position: absolute; top: 1450px; left: 36px; width: 354px; height: 24px;" title="SOP Standard Operating Guidelines" src="https://s3.amazonaws.com/tsresources.targetsolutions.com/16370B4B-4E05-88D0-F6BD-193941311EBD.png" alt="SOP Standard Operating Guidelines">
-        </a>
-    </div>
-
-    <!-- JavaScript placed before the closing body tag -->
-    <script>
-        const videos = [
-            'https://www.youtube.com/embed/jy9yQvJ6I_k?cc_load_policy=1',
-            'https://www.youtube.com/embed/uzWJngpIbRY?cc_load_policy=1',
-            'https://www.youtube.com/embed/dC8dC8-ZAoU?cc_load_policy=1'
-        ];
-
-        // Generate a random index to start with
-        let currentIndex = Math.floor(Math.random() * videos.length);
-
-        // Set the iframe src to the random video when the page loads
-        document.getElementById('ytplayer').src = videos[currentIndex];
-
-        // Handle next video button click
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % videos.length;
-            document.getElementById('ytplayer').src = videos[currentIndex];
-        });
-
-        // Handle previous video button click
-        document.getElementById('prevBtn').addEventListener('click', () => {
-            currentIndex 
+        <a href="https://app.targetsolutions.com/tsapp/dashboard/pl_fb/index.cfm
