@@ -39,19 +39,27 @@
     const video = document.getElementById('777-video_html5_api');
     const hlsSource = video.querySelector('source').src;
 
+    // Function to try to play the video with error handling
+    function tryPlayVideo() {
+      video.muted = true;  // Ensure the video is muted
+      video.play().catch(error => {
+        console.error('Playback error:', error);
+      });
+    }
+
     // Check if hls.js is supported (for most browsers except Safari)
     if (Hls.isSupported()) {
       const hls = new Hls();
       hls.loadSource(hlsSource);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, function() {
-        video.play();
+        tryPlayVideo();
       });
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
       // For Safari, which supports HLS natively
       video.src = hlsSource;
       video.addEventListener('loadedmetadata', function() {
-        video.play();
+        tryPlayVideo();
       });
     } else {
       console.error('This browser does not support HLS.');
