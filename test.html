@@ -24,7 +24,7 @@
 </head>
 <body>
   <!-- Video element for the camera feed -->
-  <video id="777-video_html5_api" class="vjs-tech" preload="auto" autoplay
+  <video id="777-video_html5_api" class="vjs-tech" preload="auto" autoplay muted playsinline
          data-setup='{ "controls": true }'
          tabindex="-1"
          src="blob:https://fl511.com/e09eecff-3ae8-48f5-9fe5-b0c3d6fe2f51">
@@ -39,7 +39,7 @@
     const video = document.getElementById('777-video_html5_api');
     const hlsSource = video.querySelector('source').src;
 
-    // Check if Hls.js is supported (for most browsers except Safari)
+    // Check if hls.js is supported (for most browsers except Safari)
     if (Hls.isSupported()) {
       const hls = new Hls();
       hls.loadSource(hlsSource);
