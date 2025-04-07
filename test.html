@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My HLS Stream</title>
+  <!-- Load hls.js from a CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+  <video id="myVideo" controls autoplay muted playsinline></video>
+
+  <script>
+    if (Hls.isSupported()) {
+      const video = document.getElementById('myVideo');
+      const hls = new Hls();
+      // Replace with a stable .m3u8 URL that doesn't expire
+      const m3u8Url = 'https://example.com/path/to/playlist.m3u8';
+
+      hls.loadSource(m3u8Url);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      // Safari: HLS should work natively
+      video.src = 'https://example.com/path/to/playlist.m3u8';
+      video.addEventListener('loadedmetadata', function() {
+        video.play();
+      });
+    } else {
+      // No HLS support
+      console.error('This browser does not support HLS.');
+    }
+  </script>
+</body>
+</html>
