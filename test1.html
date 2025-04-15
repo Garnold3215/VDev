@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Responsive Image Example</title>
+  <!-- Prevent browser caching -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <style>
     /* Remove default margin and padding */
     html, body {
@@ -26,8 +30,23 @@
       display: block;
     }
   </style>
+  <script>
+    // This function appends a timestamp to the image's src to bypass caching
+    function refreshImage() {
+      var img = document.getElementById('refreshImage');
+      // Remove any existing query parameters before appending the timestamp
+      var baseSrc = img.src.split('?')[0];
+      img.src = baseSrc + '?t=' + new Date().getTime();
+    }
+    
+    // Uncomment the following line to auto-refresh the image every 60 seconds:
+    // setInterval(refreshImage, 60000);
+    
+    // Refresh the image when the page loads
+    window.onload = refreshImage;
+  </script>
 </head>
 <body>
-  <img src="https://lh3.googleusercontent.com/d/1IUVvrnJI1f8peniBRO1tVacr-9a_dOyz" alt="Responsive Image">
+  <img id="refreshImage" src="https://lh3.googleusercontent.com/d/1IUVvrnJI1f8peniBRO1tVacr-9a_dOyz" alt="Responsive Image">
 </body>
 </html>
