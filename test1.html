@@ -1,55 +1,25 @@
-<!-- A placeholder for the Facebook content -->
-<div id="fb-container">
-  <div id="fb-root"></div>
-  <!-- The Facebook Page Plugin wrapper -->
-  <div class="fb-page"
-       data-href="https://www.facebook.com/LARKSPURFIREDISTRICT"
-       data-tabs="timeline"
-       data-width="499"
-       data-height="1000"
-       data-small-header="false"
-       data-adapt-container-width="false"
-       data-hide-cover="false"
-       data-show-facepile="false">
-    <blockquote cite="https://www.facebook.com/LARKSPURFIREDISTRICT" class="fb-xfbml-parse-ignore">
-      <a href="https://www.facebook.com/LARKSPURFIREDISTRICT">Larkspur Fire Protection District</a>
-    </blockquote>
-  </div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Check if IntersectionObserver is available
-    if ("IntersectionObserver" in window) {
-      const fbContainer = document.getElementById("fb-container");
-
-      // Set up the observer to watch the Facebook container
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Create and insert the Facebook SDK script dynamically
-            const script = document.createElement("script");
-            script.async = true;
-            script.defer = true;
-            script.crossOrigin = "anonymous";
-            script.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0&appId=1472642930378967";
-            // Append the script to the fb-root element
-            document.getElementById("fb-root").appendChild(script);
-            // Once loaded, stop observing
-            obs.disconnect();
-          }
-        });
-      }, { threshold: 0 });
-
-      observer.observe(fbContainer);
-    } else {
-      // Fallback for browsers without IntersectionObserver: load immediately
-      const script = document.createElement("script");
-      script.async = true;
-      script.defer = true;
-      script.crossOrigin = "anonymous";
-      script.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0&appId=1472642930378967";
-      document.getElementById("fb-root").appendChild(script);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Signage Image</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-  });
-</script>
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://drive.google.com/uc?export=view&id=1auvEzygssUoPqENyykIG3ofHKzlrEXEG" alt="Digital Signage Image">
+</body>
+</html>
