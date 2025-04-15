@@ -1,1 +1,33 @@
-  <img src="https://drive.google.com/thumbnail?id=1auvEzygssUoPqENyykIG3ofHKzlrEXEG&sz=s4000">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Image Example</title>
+  <style>
+    /* Remove default margin and padding */
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    /* Ensure that the container (in this case body) spans the full viewport */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0; /* Optional background */
+    }
+    /* Make the image responsive */
+    img {
+      width: 100%;
+      height: auto;
+      max-width: 100%; /* Ensures image never exceeds the viewport width */
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://drive.google.com/thumbnail?id=1auvEzygssUoPqENyykIG3ofHKzlrEXEG&sz=s4000" alt="Responsive Image">
+</body>
+</html>
