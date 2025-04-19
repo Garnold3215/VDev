@@ -4,8 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Florida 511 Camera Feeds</title>
-  <!-- Include hls.js from CDN for HLS support in non-Safari browsers -->
+
+  <!-- Disable browser caching -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <!-- Include hls.js from CDN for HLS support in non‑Safari browsers -->
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
   <style>
     body {
       margin: 0;
@@ -41,7 +48,7 @@
     <div class="video-box">
       <video id="777-video_html5_api" preload="auto" autoplay muted playsinline
              data-setup='{ "controls": true }'
-             tabindex="-1" src="blob:https://fl511.com/e09eecff-3ae8-48f5-9fe5-b0c3d6fe2f51">
+             tabindex="-1">
         <source src="https://167-d5.divas.cloud/CHAN-6316/CHAN-6316_1.stream/playlist.m3u8?204.145.118.4&vdswztokenhash=MJRRC3cdwKbNhpzmcvBrRwNx036n7opSAge3pq_PuO4=" type="application/x-mpegURL">
         <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video.</p>
       </video>
@@ -51,7 +58,7 @@
     <div class="video-box">
       <video id="1080-video_html5_api" preload="auto" autoplay muted playsinline
              data-setup='{ "controls": true }'
-             tabindex="-1" src="blob:https://fl511.com/6a4899a3-5ef9-4c03-8bea-8d5dca26cde4">
+             tabindex="-1">
         <source src="https://162-d2.divas.cloud/CHAN-9405/CHAN-9405_1.stream/playlist.m3u8?204.145.118.4&vdswztokenhash=GYDO8kkJH7dHphAT7H9kwHcKyZXaMknGFcCphebkuFw=" type="application/x-mpegURL">
         <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video.</p>
       </video>
@@ -61,7 +68,7 @@
     <div class="video-box">
       <video id="1078-video_html5_api" preload="auto" autoplay muted playsinline
              data-setup='{ "controls": true }'
-             tabindex="-1" src="blob:https://fl511.com/67d28640-7e15-4d6b-af25-ab79e8e782b7">
+             tabindex="-1">
         <source src="https://162-d2.divas.cloud/CHAN-9403/CHAN-9403_1.stream/playlist.m3u8?204.145.118.4&vdswztokenhash=LbL2sMw-ZWz-3fUI8dvBStFYsUj-xlaYsRdtmJedt4w=" type="application/x-mpegURL">
         <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video.</p>
       </video>
@@ -69,35 +76,38 @@
   </div>
 
   <script>
-    // Function to initialize hls.js on a given video element by its ID.
+    // Initialize HLS for a given video element
     function setupHls(videoId) {
       const video = document.getElementById(videoId);
       const hlsSource = video.querySelector('source').src;
-      
-      function tryPlayVideo() {
-        video.muted = true; // Ensure video is muted for autoplay.
-        video.play().catch(error => {
-          console.error(`Playback error for ${videoId}:`, error);
-        });
+
+      function tryPlay() {
+        video.muted = true;
+        video.play().catch(err => console.error(`Playback error for ${videoId}:`, err));
       }
-      
+
       if (Hls.isSupported()) {
         const hls = new Hls();
         hls.loadSource(hlsSource);
         hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, tryPlayVideo);
+        hls.on(Hls.Events.MANIFEST_PARSED, tryPlay);
       } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         video.src = hlsSource;
-        video.addEventListener('loadedmetadata', tryPlayVideo);
+        video.addEventListener('loadedmetadata', tryPlay);
       } else {
         console.error('This browser does not support HLS.');
       }
     }
 
-    // Initialize HLS for all three cameras.
-    setupHls("777-video_html5_api");
-    setupHls("1080-video_html5_api");
-    setupHls("1078-video_html5_api");
+    // Kick off HLS for each feed
+    ['777-video_html5_api','1080-video_html5_api','1078-video_html5_api']
+      .forEach(setupHls);
+
+    // Auto-refresh every 4 minutes (240 000 ms), bust cache with timestamp
+    setInterval(() => {
+      const base = window.location.href.split('?')[0];
+      window.location.href = `${base}?t=${Date.now()}`;
+    }, 240000);
   </script>
 </body>
 </html>
