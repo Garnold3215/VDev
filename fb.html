@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Facebook Page Details Demo</title>
+  <title>Facebook SDK Demo – Login & Like Button</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 2rem;
-      line-height: 1.4;
+      line-height: 1.5;
     }
-    #fb-login-btn {
+    button {
       padding: 0.6rem 1.2rem;
       font-size: 1rem;
       cursor: pointer;
+      margin-bottom: 1rem;
     }
     pre {
       background: #f4f4f4;
@@ -25,37 +26,56 @@
   </style>
 </head>
 <body>
-  <h1>Facebook Login – Page Details Tester</h1>
-
-  <!-- Facebook root element -->
+  <!-- Required root div for Facebook SDK -->
   <div id="fb-root"></div>
 
-  <!-- Login button -->
-  <button id="fb-login-btn">Login with Facebook</button>
+  <h1>Facebook SDK Demo</h1>
+  <p>
+    This page demonstrates two common tasks with the JS SDK:
+    <strong>Facebook Login + reading Page data</strong> <em>and</em> a simple
+    <strong>Like button</strong> social plugin.
+  </p>
 
-  <!-- Output area -->
+  <!-- Login button -->
+  <button id="fb-login-btn" disabled>Login with Facebook</button>
+
+  <!-- Like button (replace the href with your own Page or URL) -->
+  <div class="fb-like" data-href="https://www.facebook.com/facebook" data-share="true" data-width="450" data-show-faces="true"></div>
+
   <h2>Output</h2>
   <pre id="output">(nothing yet)</pre>
 
-  <!-- Load the JS SDK -->
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-
+  <!-- Facebook SDK loader (official snippet) -->
   <script>
-    // ⚠️ Replace with your own App ID
+    // IMPORTANT: replace with your own App ID
     const APP_ID = '1472642930378967';
 
-    // SDK init
     window.fbAsyncInit = function () {
       FB.init({
         appId: APP_ID,
         cookie: true,
-        xfbml: false,
+        xfbml: true, // auto‑render social plugins like the Like button
         version: 'v23.0',
       });
-      log('FB SDK initialised.');
+      FB.AppEvents.logPageView();
+
+      // SDK ready – enable the login button
+      document.getElementById('fb-login-btn').disabled = false;
     };
 
-    // Utility for pretty‑printing JSON to <pre>
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'facebook-jssdk');
+
+    // Utility logger for pretty JSON output
     function log(msg, obj) {
       const o = document.getElementById('output');
       if (obj) {
@@ -65,8 +85,10 @@
       }
     }
 
-    // Attach click handler
-    document.getElementById('fb-login-btn').addEventListener('click', fbLogin);
+    // Attach click handler once the DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('fb-login-btn').addEventListener('click', fbLogin);
+    });
 
     function fbLogin() {
       log('Opening Facebook Login dialog…');
