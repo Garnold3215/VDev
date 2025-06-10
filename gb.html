@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facebook Page Details Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      line-height: 1.4;
+    }
+    #fb-login-btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 0.4rem;
+      overflow-x: auto;
+      max-height: 70vh;
+    }
+  </style>
+</head>
+<body>
+  <h1>Facebook Login – Page Details Tester</h1>
+
+  <!-- Facebook root element -->
+  <div id="fb-root"></div>
+
+  <!-- Login button -->
+  <button id="fb-login-btn">Login with Facebook</button>
+
+  <!-- Output area -->
+  <h2>Output</h2>
+  <pre id="output">(nothing yet)</pre>
+
+  <!-- Load the JS SDK -->
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+  <script>
+    // ⚠️ Replace with your own App ID
+    const APP_ID = 'YOUR_APP_ID_HERE';
+
+    // SDK init
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: APP_ID,
+        cookie: true,
+        xfbml: false,
+        version: 'v23.0',
+      });
+      log('FB SDK initialised.');
+    };
+
+    // Utility for pretty‑printing JSON to <pre>
+    function log(msg, obj) {
+      const o = document.getElementById('output');
+      if (obj) {
+        o.textContent = `${msg}\n${JSON.stringify(obj, null, 2)}`;
+      } else {
+        o.textContent = msg;
+      }
+    }
+
+    // Attach click handler
+    document.getElementById('fb-login-btn').addEventListener('click', fbLogin);
+
+    function fbLogin() {
+      log('Opening Facebook Login dialog…');
+      FB.login(
+        (res) => {
+          if (res.status === 'connected') {
+            log('Login succeeded – fetching Pages…');
+            listPages(res.authResponse.accessToken);
+          } else {
+            log('Login failed or cancelled.', res);
+          }
+        },
+        { scope: 'pages_show_list,pages_read_engagement' }
+      );
+    }
+
+    function listPages(userToken) {
+      FB.api(
+        '/me/accounts',
+        { fields: 'id,name,access_token,category' },
+        (pages) => {
+          if (!pages || pages.error) {
+            log('Error fetching pages:', pages.error || pages);
+            return;
+          }
+          log('Pages fetched:', pages);
+
+          // Example: fetch details for the first page (if any)
+          if (pages.data && pages.data.length) {
+            const firstPage = pages.data[0];
+            getPageDetails(firstPage.id, firstPage.access_token);
+          }
+        }
+      );
+    }
+
+    function getPageDetails(pageId, pageToken) {
+      FB.api(
+        `/${pageId}`,
+        {
+          access_token: pageToken,
+          fields: [
+            'id',
+            'name',
+            'about',
+            'link',
+            'fan_count',
+            'category',
+            'picture{url}',
+            'cover{source}',
+          ].join(','),
+        },
+        (page) => {
+          if (!page || page.error) {
+            log('Error fetching page details:', page.error || page);
+            return;
+          }
+          log('Page details:', page);
+        }
+      );
+    }
+  </script>
+</body>
+</html>
